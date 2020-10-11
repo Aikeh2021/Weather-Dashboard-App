@@ -1,4 +1,12 @@
 h1 {
-    
     color: white;
+}
+
+aside {
+    margin: 15px;
+}
+
+label {
+    font-size: 22px;
+    font-weight: 500;
 }

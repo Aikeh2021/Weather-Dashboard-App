@@ -18,17 +18,25 @@
     />
     <link rel="stylesheet" href="./components/style.css" />
     <nav class="navbar navbar-dark bg-dark nav justify-content-center">
-      <h1 >Weather Dashboard</h1>
+      <h1>Weather Dashboard</h1>
     </nav>
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
+    <aside>
+        <form>
+          <label class="search-heading" for="city-search">Search for a City:</label><br />
+          <input type="text" id="city-input" name="city-name" /><button
+            type="button"
+            class="btn btn-primary">
+            Search
+          </button>
+        </form>
+    <section class="col-7">
+        <div id="city-date"></div><br>
+        <div id="5-day-forecast"></div>
 
+    </section>
+</div>
     <script src="" async defer></script>
   </body>
 </html>
