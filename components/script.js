@@ -23,6 +23,8 @@ var fiveDayDiv = $("#5-day-forecast-cards-div")
 
 
 //Event Listeners
-$()
+$("#submit-btn").on("click", function(){
+    console.log("You clicked me!");
+});
 
 });
