@@ -33,7 +33,13 @@ makeCityList();
 //Event Listeners
 $("#submit-btn").on("click", function(){
     console.log("You want to search for a city?");
+    var cityInput = $("#city-input");
+    cityArray.push(cityInput.val());
+    makeCityList();
+
+
 });
+
 
 
 
