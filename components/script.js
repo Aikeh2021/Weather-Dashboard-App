@@ -2,10 +2,6 @@ console.log("hello world!")
 $(document).ready(function(){
 
 //DOM Variables
-var cityInput = $("#city-input");
-var ulElement = $("#ul-element");
-var cityDiv = $("#city-date-div");
-var fiveDayDiv = $("#5-day-forecast-cards-div")
 
 
 
@@ -15,7 +11,9 @@ var fiveDayDiv = $("#5-day-forecast-cards-div")
 
 
 //Functions
+function makeCityList(){}
 
+ 
 
 
 //Function Calls
@@ -24,7 +22,10 @@ var fiveDayDiv = $("#5-day-forecast-cards-div")
 
 //Event Listeners
 $("#submit-btn").on("click", function(){
-    console.log("You clicked me!");
+    console.log("You want to search for a city?");
 });
+
+
+
 
 });
