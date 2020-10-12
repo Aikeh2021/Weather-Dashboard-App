@@ -2,7 +2,7 @@ console.log("hello world!")
 $(document).ready(function(){
 
 //DOM Variables
-var cityArray = ["Atlanta", "Dallas", "Vegas"];
+var cityArray = [];
 
 
 
@@ -12,6 +12,7 @@ var cityArray = ["Atlanta", "Dallas", "Vegas"];
 
 //Functions
 function makeCityList(){
+    $("#ul-element").empty("");
     for(var i = 0; i < cityArray.length; i++){
         console.log(cityArray[i]);
         var newLiEls = $("<li>")
