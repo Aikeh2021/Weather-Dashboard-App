@@ -19,12 +19,18 @@ function makeCityList(){
         var newLiEls = $("<li>")
         newLiEls.text(cityArray[i])
         newLiEls.addClass("list-group-item")
-        $("#ul-element").append(newLiEls)
+        $("#ul-element").prepend(newLiEls)
     }
 }
 
+// function oneDay(){
+//   var cityNameHeader = $("<h1>")
+//   cityNameHeader.text(response.coord.main.name);
+
+  
+// }
 //Function Calls
-makeCityList();
+// makeCityList();
 
 
 //Event Listeners
@@ -39,7 +45,22 @@ $("#submit-btn").on("click", function(){
       url: queryURL,
       method: "GET"
     }).then(function(response){
+      $("#todays-forecast").empty();
       console.log(response);
+      var cityNameHeader = $("<h1>")
+      cityNameHeader.text(response.name).addClass("card-title");
+      var todayTemp = $("<p>").text(response.main.temp);
+      var todayHumidity = $("<p>").text(response.main.humidity)
+      var todayWindSpeed = $("<p>").text("Wind Speed: " + response.wind.speed)
+      var todayUVIndex = $("<p>").text(response.main.temp)
+      var card = $("<div>").addClass("card")
+      var cardBody = $("<div>").addClass("card-body")
+      cardBody.append(cityNameHeader, todayTemp, todayHumidity, todayWindSpeed, todayUVIndex);
+      card.append(cardBody);
+      $("#todays-forecast").append(card);
+
+      
+      
     });
 
 

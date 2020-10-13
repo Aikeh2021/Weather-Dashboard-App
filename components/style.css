@@ -1,10 +1,10 @@
-h1 {
+#nav-title {
     color: white;
 }
 
-aside {
+/* aside {
     margin: 15px;
-}
+} */
 
 label {
     font-size: 22px;
