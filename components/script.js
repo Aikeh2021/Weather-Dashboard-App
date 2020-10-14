@@ -20,6 +20,9 @@ function makeCityList(){
         newLiEls.text(cityArray[i])
         newLiEls.addClass("list-group-item")
         $("#ul-element").prepend(newLiEls)
+        $(".list-group-item").on("click", function(){
+          console.log("Was I clicked?");
+        })
     }
 }
 
