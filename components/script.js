@@ -38,7 +38,7 @@ $("#submit-btn").on("click", function(){
       $("#todays-forecast").empty();
       console.log(response);
       var cityNameHeader = $("<h1>")
-      cityNameHeader.text(response.name).addClass("card-title");
+      cityNameHeader.text(response.name + moment().format(' L')).addClass("card-title");
       var todayTemp = $("<p>").text("Temperature: " + response.main.temp + "°F");
       var todayHumidity = $("<p>").text("Humidity: " + response.main.humidity + "%");
       var todayWindSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + "MPH")
