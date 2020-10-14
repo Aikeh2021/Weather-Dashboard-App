@@ -23,16 +23,6 @@ function makeCityList(){
     }
 }
 
-// function oneDay(){
-//   var cityNameHeader = $("<h1>")
-//   cityNameHeader.text(response.coord.main.name);
-
-  
-// }
-//Function Calls
-// makeCityList();
-
-
 //Event Listeners
 $("#submit-btn").on("click", function(){
     // console.log("You want to search for a city?");
@@ -49,9 +39,9 @@ $("#submit-btn").on("click", function(){
       console.log(response);
       var cityNameHeader = $("<h1>")
       cityNameHeader.text(response.name).addClass("card-title");
-      var todayTemp = $("<p>").text(response.main.temp);
-      var todayHumidity = $("<p>").text(response.main.humidity)
-      var todayWindSpeed = $("<p>").text("Wind Speed: " + response.wind.speed)
+      var todayTemp = $("<p>").text("Temperature: " + response.main.temp + "°F");
+      var todayHumidity = $("<p>").text("Humidity: " + response.main.humidity + "%");
+      var todayWindSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + "MPH")
       var todayUVIndex = $("<p>").text(response.main.temp)
       var card = $("<div>").addClass("card")
       var cardBody = $("<div>").addClass("card-body")
