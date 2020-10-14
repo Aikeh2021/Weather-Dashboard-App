@@ -2,9 +2,9 @@
     color: white;
 }
 
-/* aside {
-    margin: 15px;
-} */
+aside {
+    background-color: whitesmoke;
+}
 
 label {
     font-size: 22px;
