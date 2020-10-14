@@ -45,20 +45,28 @@ $("#submit-btn").on("click", function(){
       var todayTemp = $("<p>").text("Temperature: " + response.main.temp + "°F");
       var todayHumidity = $("<p>").text("Humidity: " + response.main.humidity + "%");
       var todayWindSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + "MPH")
-      var todayUVIndex = $("<p>").text(response.main.temp)
       var card = $("<div>").addClass("card")
       var cardBody = $("<div>").addClass("card-body")
-      cardBody.append(cityNameHeader, todayTemp, todayHumidity, todayWindSpeed, todayUVIndex);
+      cardBody.append(cityNameHeader, todayTemp, todayHumidity, todayWindSpeed);
       card.append(cardBody);
       $("#todays-forecast").append(card);
-
+      var responseLat = "" + response.coord.lat;
+      var responseLon = "" + response.coord.lon;
+      var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?lat=" + responseLat+ "&lon=" + responseLon + "&appid=32b72b4687124665b25a8747960d4793";
+      $.ajax({
+        url: queryURL2,
+        method: "GET"
+      }).then(function(response){
+        var todayUVIndex = $("<p>").text("UV Index: " + response.value);
+        cardBody.append(todayUVIndex);
+      })
       
       
     });
     var cityName = $("#city-input").val();
-    var queryURL2 = "https://api.openweathermap.org/data/2.5/forecast?q=" +cityName+ "&cnt=40&units=imperial&appid=32b72b4687124665b25a8747960d4793";
+    var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?q=" +cityName+ "&cnt=40&units=imperial&appid=32b72b4687124665b25a8747960d4793";
     $.ajax({
-      url: queryURL2,
+      url: queryURL3,
       method: "GET"
     }).then(function(response){
       console.log(response);
