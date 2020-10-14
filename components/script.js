@@ -39,7 +39,7 @@ $("#submit-btn").on("click", function(){
       method: "GET"
     }).then(function(response){
       $("#todays-forecast").empty();
-      // console.log(response);
+      console.log(response);
       var cityNameHeader = $("<h1>")
       cityNameHeader.text(response.name + " (" + moment().format('L') + ")").addClass("card-title");
       var todayTemp = $("<p>").text("Temperature: " + response.main.temp + "°F");
@@ -60,6 +60,14 @@ $("#submit-btn").on("click", function(){
         var todayUVIndex = $("<p>").text("UV Index: " + response.value);
         cardBody.append(todayUVIndex);
       })
+      var weatherIcons = response.weather[0].weatherIcons;
+      var queryURL4 = "https://openweathermap.org/img/wn/" + weatherIcons + ".png";
+      $.ajax({
+        url: queryURL4,
+        method: "GET"
+      }).then(function(response){
+        cityNameHeader.text(+ weatherIcons);
+      })
       
       
     });
@@ -69,7 +77,7 @@ $("#submit-btn").on("click", function(){
       url: queryURL3,
       method: "GET"
     }).then(function(response){
-      console.log(response);
+      // console.log(response);
       $("#five-day").empty();
       var holderDiv = $("<div>").addClass("row")
       var divHeader = $("#five-day").append("<h3>5-Day-Forecast:</h3>");
