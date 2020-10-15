@@ -41,7 +41,11 @@ $("#submit-btn").on("click", function(){
       $("#todays-forecast").empty();
       console.log(response);
       var cityNameHeader = $("<h1>")
+      var weatherIcons = response.weather[0].icon;
+      weatherIconsURL = "https://openweathermap.org/img/wn/" + weatherIcons + ".png"
+      var weatherImage = $("<img>").attr("src", weatherIconsURL).attr("alt", "weather icon");
       cityNameHeader.text(response.name + " (" + moment().format('L') + ")").addClass("card-title");
+      cityNameHeader.append(weatherImage);
       var todayTemp = $("<p>").text("Temperature: " + response.main.temp + "°F");
       var todayHumidity = $("<p>").text("Humidity: " + response.main.humidity + "%");
       var todayWindSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + "MPH")
@@ -60,14 +64,15 @@ $("#submit-btn").on("click", function(){
         var todayUVIndex = $("<p>").text("UV Index: " + response.value);
         cardBody.append(todayUVIndex);
       })
-      var weatherIcons = response.weather[0].weatherIcons;
-      var queryURL4 = "https://openweathermap.org/img/wn/" + weatherIcons + ".png";
-      $.ajax({
-        url: queryURL4,
-        method: "GET"
-      }).then(function(response){
-        cityNameHeader.text(+ weatherIcons);
-      })
+      // var weatherIcons = response.weather[0].id;
+      // var queryURL4 = "https://openweathermap.org/img/wn/" + weatherIcons + ".png";
+      // $.ajax({
+      //   url: queryURL4,
+      //   method: "GET"
+      // }).then(function(response){
+      //   var weatherImage = $("<img>")
+      //   weatherImage.attr("src:", );
+      // })
       
       
     });
@@ -84,35 +89,35 @@ $("#submit-btn").on("click", function(){
       var header1 = $("<h6>").addClass("card-header").text(moment().add(1, 'days').calendar('L'));
       var temp1 = $("<p>").addClass("card-text").text("Temp: " + response.list[6].main.temp + " °F");
       var humidity1 = $("<p>").addClass("card-text").text("Humidity: " + response.list[6].main.humidity + "%");
-      var newDiv1 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width:", "18 rem");
+      var newDiv1 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
       newDiv1.append(header1, temp1, humidity1);
       holderDiv.append(newDiv1)
       $("#five-day").append(holderDiv);
       var header2 = $("<h6>").addClass("card-header").text(moment().add(2, 'days').calendar('L'));
       var temp2 = $("<p>").addClass("card-text").text("Temp: " + response.list[14].main.temp + " °F");
       var humidity2 = $("<p>").addClass("card-text").text("Humidity: " + response.list[14].main.humidity + "%");
-      var newDiv2 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width:", "18 rem");
+      var newDiv2 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
       newDiv2.append(header2, temp2, humidity2);
       holderDiv.append(newDiv2)
       $("#five-day").append(holderDiv);
       var header3 = $("<h6>").addClass("card-header").text(moment().add(3, 'days').calendar('L'));
       var temp3 = $("<p>").addClass("card-text").text("Temp: " + response.list[22].main.temp + " °F");
       var humidity3 = $("<p>").addClass("card-text").text("Humidity: " + response.list[22].main.humidity + "%");
-      var newDiv3 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width:", "18 rem");
+      var newDiv3 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
       newDiv3.append(header3, temp3, humidity3);
       holderDiv.append(newDiv3)
       $("#five-day").append(holderDiv);
       var header4 = $("<h6>").addClass("card-header").text(moment().add(4, 'days').calendar('L'));
       var temp4 = $("<p>").addClass("card-text").text("Temp: " + response.list[30].main.temp + " °F");
       var humidity4 = $("<p>").addClass("card-text").text("Humidity: " + response.list[30].main.humidity + "%");
-      var newDiv4 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width:", "18 rem");
+      var newDiv4 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
       newDiv4.append(header4, temp4, humidity4);
       holderDiv.append(newDiv4)
       $("#five-day").append(holderDiv);
       var header5 = $("<h6>").addClass("card-header").text(moment().add(5, 'days').calendar('L'));
       var temp5 = $("<p>").addClass("card-text").text("Temp: " + response.list[38].main.temp + " °F");
       var humidity5 = $("<p>").addClass("card-text").text("Humidity: " + response.list[38].main.humidity + "%");
-      var newDiv5 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width:", "18 rem");
+      var newDiv5 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
       newDiv5.append(header5, temp5, humidity5);
       holderDiv.append(newDiv5)
       $("#five-day").append(holderDiv);
