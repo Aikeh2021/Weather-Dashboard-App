@@ -39,7 +39,7 @@ $("#submit-btn").on("click", function(){
       method: "GET"
     }).then(function(response){
       $("#todays-forecast").empty();
-      console.log(response);
+      // console.log(response);
       var cityNameHeader = $("<h1>")
       var weatherIcons = response.weather[0].icon;
       weatherIconsURL = "https://openweathermap.org/img/wn/" + weatherIcons + ".png"
@@ -64,15 +64,6 @@ $("#submit-btn").on("click", function(){
         var todayUVIndex = $("<p>").text("UV Index: " + response.value);
         cardBody.append(todayUVIndex);
       })
-      // var weatherIcons = response.weather[0].id;
-      // var queryURL4 = "https://openweathermap.org/img/wn/" + weatherIcons + ".png";
-      // $.ajax({
-      //   url: queryURL4,
-      //   method: "GET"
-      // }).then(function(response){
-      //   var weatherImage = $("<img>")
-      //   weatherImage.attr("src:", );
-      // })
       
       
     });
@@ -82,15 +73,19 @@ $("#submit-btn").on("click", function(){
       url: queryURL3,
       method: "GET"
     }).then(function(response){
-      // console.log(response);
+      console.log(response);
       $("#five-day").empty();
       var holderDiv = $("<div>").addClass("row")
       var divHeader = $("#five-day").append("<h3>5-Day-Forecast:</h3>");
       var header1 = $("<h6>").addClass("card-header").text(moment().add(1, 'days').calendar('L'));
       var temp1 = $("<p>").addClass("card-text").text("Temp: " + response.list[6].main.temp + " °F");
+      var weatherIcons = response.list[6].weather[0].icon;
+      weatherIconsURL = "https://openweathermap.org/img/wn/" + weatherIcons + ".png"
+      var weatherImage1 = $("<img>").attr("src", weatherIconsURL).attr("alt", "weather icon");
+      var weatherImageDiv1 = $("<div>").append(weatherImage1);
       var humidity1 = $("<p>").addClass("card-text").text("Humidity: " + response.list[6].main.humidity + "%");
       var newDiv1 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
-      newDiv1.append(header1, temp1, humidity1);
+      newDiv1.append(header1, weatherImageDiv1, temp1, humidity1);
       holderDiv.append(newDiv1)
       $("#five-day").append(holderDiv);
       var header2 = $("<h6>").addClass("card-header").text(moment().add(2, 'days').calendar('L'));
