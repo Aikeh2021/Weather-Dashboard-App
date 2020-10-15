@@ -2,11 +2,18 @@
 
 ## Contents
 
+* [A Traveler's Paradise](#a-travelers-paradise)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Mathletes](#mathletes)
 * [Credits](#credits)
 * [License](#license)
+
+
+## A Traveler's Paradise
+
+The only thing worse than forgetting something you meant to pack for a trip, is dressing inappropriately for the weather. While the weather app on your phone predicted it would be sunny and warm for your trip to Seattle, the view of the storm clouds from your window seat has you convinced otherwise. If you want to prevent this from happening again, you should rely on the Weather Dashboard website!
+This site was created for travelers who want the most up-to-date information regarding the weather in any city around the globe. Not to mention, the website features a five-day forecast which you can use to plan trip outfits, events, and even dining options. Because nothing says vacation like margarita on a bright, sunny beach. So what are you waiting for? Let's start lookin' so we can get to bookin'!
 
 ## Installation:
 
