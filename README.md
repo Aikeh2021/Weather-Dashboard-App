@@ -2,19 +2,31 @@
 
 ## Contents
 
+* [Installation](#installation)
+* [Usage](#usage)
 * [Mathletes](#mathletes)
 * [Credits](#credits)
 * [License](#license)
 
 ## Installation:
 
-If you would like to use the Weather Dashboard Website, please [click here](https://aikeh2021.github.io/Weather-Dashboard-App/).
-
-If you would like to see the Github repository for this project, please [click here](https://github.com/Aikeh2021/Weather-Dashboard-App).
+If you would like to use the Weather Dashboard Website, please [click here](https://aikeh2021.github.io/Weather-Dashboard-App/). If you would like to see the Github repository for this project, please [click here](https://github.com/Aikeh2021/Weather-Dashboard-App).
 
 ## Usage:
 
+To get started, use the search bar on the top left of the page to look up the weather in any city from around the globe! 
 
+![Welcome to the Weather Dashboard!](components/assets/weather-dashboard-overview.png)
+
+Once you have input a city, you will see two large sections appear on the page. The first will show you the city you have searched, the date, and the current weather conditions in that city at the time of your search. To get updated weather conditions, just refresh the page.
+
+![Current weather](components/assets/todays-forecast-screenshot.png)
+
+Each time you search for a city, the information will be stored below the search bar in a box with the name of the city on it. To review the weather for a city you have already searched, just click the block with the corresponding city name. The information will reappear on the page with the up-to-date weather for that specific city.
+
+![Five day forecast](components/assets/five-day-forecast-screenshot.png)
+
+The second section that appears on the page displays the weather information for the next five days. While this is just a glimpse of the weather, the information can still be used to plan events and attire for the upcoming week. For the most accurate information, rely on the weather when displayed in the first section of the website, as it updates hourly.
 
 
 ## Mathletes:
@@ -28,16 +40,20 @@ I will definitely be revisiting this assignment to continue bringing this websit
 
 ## Credits:
 
-[How To Format An Input Tag](https://www.w3schools.com/html/html_form_input_types.asp)
-[Kind of Input Types](https://www.w3schools.com/html/html_form_input_types.asp)
-[jQuery CDN](https://code.jquery.com/)
-[How to Use empty() jQuery Method](https://www.w3schools.com/jquery/html_empty.asp)
-[How to Use text() jQuery Method](https://www.w3schools.com/jquery/html_text.asp)
-[How to Use val() jQuery Method](https://www.w3schools.com/jquery/html_val.asp)
-[How to Use push() jQuery Method](https://www.w3schools.com/jsref/jsref_push.asp)
-[How to Use preventDefault JS Method](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
-[Open Weather API](https://openweathermap.org/appid)
-[Moment JS Library](https://momentjs.com)
+* [How To Format An Input Tag](https://www.w3schools.com/html/html_form_input_types.asp)
+* [Kind of Input Types](https://www.w3schools.com/html/html_form_input_types.asp)
+* [jQuery CDN](https://code.jquery.com/)
+* [How to Use empty() jQuery Method](https://www.w3schools.com/jquery/html_empty.asp)
+* [How to Use text() jQuery Method](https://www.w3schools.com/jquery/html_text.asp)
+* [How to Use val() jQuery Method](https://www.w3schools.com/jquery/html_val.asp)
+* [How to Use push() jQuery Method](https://www.w3schools.com/jsref/jsref_push.asp)
+* [How to Use preventDefault JS Method](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+* [Open Weather API](https://openweathermap.org/appid)
+* [Moment JS Library](https://momentjs.com)
+* [UV Index Scale](https://www.epa.gov/sunsafety/uv-index-scale-0)
+* [Creating the Weather Icons](https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon)
+* [Making the Degree Symbol](https://www.36degreesnorth.co/how-to)
+
 
 
 ## License:
