@@ -61,7 +61,14 @@ $("#submit-btn").on("click", function(){
         url: queryURL2,
         method: "GET"
       }).then(function(response){
-        var todayUVIndex = $("<p>").text("UV Index: " + response.value);
+        var todayUVIndex = $("<p>").text("UV Index: " + response.value)
+        // if(3<todayUVIndex){
+        //   todayUVIndex.removeClass("").addClass("btn btn-success")
+        // }else if(3<todayUVIndex<6){todayUVIndex.removeClass("").addClass("btn btn-warning")
+        // }else if(6<todayUVIndex<8){todayUVIndex.removeAttr("").attr("style:", "background-color: orange", "padding: 5px")
+        // }else if(8<todayUVIndex<10){todayUVIndex.removeClass("").addClass("btn btn-danger")
+        // }else(todayUVIndex.removeAttr("").attr("background-color: purple", "color: white", "padding: 5px"))
+        ;
         cardBody.append(todayUVIndex);
       })
       
