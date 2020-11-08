@@ -38,8 +38,8 @@ $("#submit-btn").on("click", function(){
       url: queryURL,
       method: "GET"
     }).then(function(response){
+      //Making the forecast div for today
       $("#todays-forecast").empty();
-      // console.log(response);
       var cityNameHeader = $("<h1>")
       var weatherIcons = response.weather[0].icon;
       weatherIconsURL = "https://openweathermap.org/img/wn/" + weatherIcons + ".png"
@@ -54,6 +54,7 @@ $("#submit-btn").on("click", function(){
       cardBody.append(cityNameHeader, todayTemp, todayHumidity, todayWindSpeed);
       card.append(cardBody);
       $("#todays-forecast").append(card);
+      //Getting the UV Index for today's forecast
       var responseLat = "" + response.coord.lat;
       var responseLon = "" + response.coord.lon;
       var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?lat=" + responseLat+ "&lon=" + responseLon + "&appid=32b72b4687124665b25a8747960d4793";
@@ -62,18 +63,17 @@ $("#submit-btn").on("click", function(){
         method: "GET"
       }).then(function(response){
         var todayUVIndex = $("<p>").text("UV Index: " + response.value)
-        // if(3<todayUVIndex){
-        //   todayUVIndex.removeClass("").addClass("btn btn-success")
-        // }else if(3<todayUVIndex<6){todayUVIndex.removeClass("").addClass("btn btn-warning")
-        // }else if(6<todayUVIndex<8){todayUVIndex.removeAttr("").attr("style:", "background-color: orange", "padding: 5px")
-        // }else if(8<todayUVIndex<10){todayUVIndex.removeClass("").addClass("btn btn-danger")
-        // }else(todayUVIndex.removeAttr("").attr("background-color: purple", "color: white", "padding: 5px"))
-        ;
+        //HERE IS WHERE YOU NEED TO MAKE A SWITCH CASE TO CHANGE THE COLOR AROUND THE UV INDEX INFORMATION
+        if(response.value<3){todayUVIndex.removeClass("btn btn-warning", "btn btn-danger").addClass("btn btn-success");}
+          else if(3<response.value && response.value<6){todayUVIndex.removeClass("btn btn-success", "btn btn-danger").addClass("btn btn-warning");}
+          else if(6<response.value && response.value<20){todayUVIndex.removeClass("btn btn-success", "btn btn-warning").addClass("btn btn-danger");}
         cardBody.append(todayUVIndex);
       })
-      
-      
+        // .attr("style:", "background-color: orange", "padding: 5px")
+        // }else if(8<todayUVIndex<10){todayUVIndex.removeClass("").addClass("btn btn-danger")
+        // }else(todayUVIndex.removeAttr("").attr("background-color: purple", "color: white", "padding: 5px"));
     });
+    //5 day forecast cards
     var cityName = $("#city-input").val();
     var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?q=" +cityName+ "&cnt=40&units=imperial&appid=32b72b4687124665b25a8747960d4793";
     $.ajax({
@@ -82,6 +82,7 @@ $("#submit-btn").on("click", function(){
     }).then(function(response){
       console.log(response);
       $("#five-day").empty();
+      //Day 1's card
       var holderDiv = $("<div>").addClass("row")
       var divHeader = $("#five-day").append("<h3>5-Day-Forecast:</h3>");
       var header1 = $("<h6>").addClass("card-header").text(moment().add(1, 'days').calendar('L'));
@@ -95,6 +96,7 @@ $("#submit-btn").on("click", function(){
       newDiv1.append(header1, weatherImageDiv1, temp1, humidity1);
       holderDiv.append(newDiv1)
       $("#five-day").append(holderDiv);
+      //Day 2's card
       var header2 = $("<h6>").addClass("card-header").text(moment().add(2, 'days').calendar('L'));
       var temp2 = $("<p>").addClass("card-text").text("Temp: " + response.list[14].main.temp + " °F");
       var weatherIcons2 = response.list[14].weather[0].icon;
@@ -106,6 +108,7 @@ $("#submit-btn").on("click", function(){
       newDiv2.append(header2, weatherImageDiv2, temp2, humidity2);
       holderDiv.append(newDiv2)
       $("#five-day").append(holderDiv);
+      //Day 3's card
       var header3 = $("<h6>").addClass("card-header").text(moment().add(3, 'days').calendar('L'));
       var temp3 = $("<p>").addClass("card-text").text("Temp: " + response.list[22].main.temp + " °F");
       var weatherIcons3 = response.list[22].weather[0].icon;
@@ -117,6 +120,7 @@ $("#submit-btn").on("click", function(){
       newDiv3.append(header3, weatherImageDiv3, temp3, humidity3);
       holderDiv.append(newDiv3)
       $("#five-day").append(holderDiv);
+      //Day 4's card
       var header4 = $("<h6>").addClass("card-header").text(moment().add(4, 'days').calendar('L'));
       var temp4 = $("<p>").addClass("card-text").text("Temp: " + response.list[30].main.temp + " °F");
       var weatherIcons4 = response.list[30].weather[0].icon;
@@ -128,6 +132,7 @@ $("#submit-btn").on("click", function(){
       newDiv4.append(header4, weatherImageDiv4, temp4, humidity4);
       holderDiv.append(newDiv4)
       $("#five-day").append(holderDiv);
+      //Day 5's card
       var header5 = $("<h6>").addClass("card-header").text(moment().add(5, 'days').calendar('L'));
       var temp5 = $("<p>").addClass("card-text").text("Temp: " + response.list[38].main.temp + " °F");
       var weatherIcons5 = response.list[38].weather[0].icon;
