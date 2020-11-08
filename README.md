@@ -25,7 +25,7 @@ To get started, use the search bar on the top left of the page to look up the we
 
 ![Welcome to the Weather Dashboard!](components/assets/weather-dashboard-overview.png)
 
-Once you have input a city, you will see two large sections appear on the page. The first will show you the city you have searched, the date, and the current weather conditions in that city at the time of your search. To get updated weather conditions, just refresh the page.
+Once you have input a city and clicked the search button, you will see two large sections appear on the page. The first will show you the city you have searched, the date, and the current weather conditions in that city at the time of your search. To get updated weather conditions, just refresh the page. The UV Index feature has three settings (green, orange, and red). If the UV Index is surrounded by the orange or red coloring, the UV Index is high so use protective measures. Like I always say, if it's not green use sunscreen! 
 
 ![Current weather](components/assets/todays-forecast-screenshot.png)
 
