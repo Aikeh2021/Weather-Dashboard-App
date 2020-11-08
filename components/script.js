@@ -1,13 +1,9 @@
-// console.log("hello world!")
 $(document).ready(function(){
 
 //DOM Variables
 var cityArray = [];
 var cityName = $("#city-input").text();
 
-
-
-//JS Variables
 
 
 
@@ -63,15 +59,12 @@ $("#submit-btn").on("click", function(){
         method: "GET"
       }).then(function(response){
         var todayUVIndex = $("<p>").text("UV Index: " + response.value)
-        //HERE IS WHERE YOU NEED TO MAKE A SWITCH CASE TO CHANGE THE COLOR AROUND THE UV INDEX INFORMATION
+        //If/Else statement to make the UV Index change color depending on what the UV scale says
         if(response.value<3){todayUVIndex.removeClass("btn btn-warning", "btn btn-danger").addClass("btn btn-success");}
           else if(3<response.value && response.value<6){todayUVIndex.removeClass("btn btn-success", "btn btn-danger").addClass("btn btn-warning");}
           else if(6<response.value && response.value<20){todayUVIndex.removeClass("btn btn-success", "btn btn-warning").addClass("btn btn-danger");}
         cardBody.append(todayUVIndex);
       })
-        // .attr("style:", "background-color: orange", "padding: 5px")
-        // }else if(8<todayUVIndex<10){todayUVIndex.removeClass("").addClass("btn btn-danger")
-        // }else(todayUVIndex.removeAttr("").attr("background-color: purple", "color: white", "padding: 5px"));
     });
     //5 day forecast cards
     var cityName = $("#city-input").val();
@@ -92,7 +85,8 @@ $("#submit-btn").on("click", function(){
       var weatherImage1 = $("<img>").attr("src", weatherIconsURL).attr("alt", "weather icon");
       var weatherImageDiv1 = $("<div>").append(weatherImage1);
       var humidity1 = $("<p>").addClass("card-text").text("Humidity: " + response.list[6].main.humidity + "%");
-      var newDiv1 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
+      var newDiv1 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18rem");
+      var spanEl = $("<span>");
       newDiv1.append(header1, weatherImageDiv1, temp1, humidity1);
       holderDiv.append(newDiv1)
       $("#five-day").append(holderDiv);
@@ -104,7 +98,7 @@ $("#submit-btn").on("click", function(){
       var weatherImage2 = $("<img>").attr("src", weatherIconsURL).attr("alt", "weather icon");
       var weatherImageDiv2 = $("<div>").append(weatherImage2);
       var humidity2 = $("<p>").addClass("card-text").text("Humidity: " + response.list[14].main.humidity + "%");
-      var newDiv2 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
+      var newDiv2 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18rem");
       newDiv2.append(header2, weatherImageDiv2, temp2, humidity2);
       holderDiv.append(newDiv2)
       $("#five-day").append(holderDiv);
@@ -116,7 +110,7 @@ $("#submit-btn").on("click", function(){
       var weatherImage3 = $("<img>").attr("src", weatherIconsURL).attr("alt", "weather icon");
       var weatherImageDiv3 = $("<div>").append(weatherImage3);
       var humidity3 = $("<p>").addClass("card-text").text("Humidity: " + response.list[22].main.humidity + "%");
-      var newDiv3 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
+      var newDiv3 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18rem");
       newDiv3.append(header3, weatherImageDiv3, temp3, humidity3);
       holderDiv.append(newDiv3)
       $("#five-day").append(holderDiv);
@@ -128,7 +122,7 @@ $("#submit-btn").on("click", function(){
       var weatherImage4 = $("<img>").attr("src", weatherIconsURL).attr("alt", "weather icon");
       var weatherImageDiv4 = $("<div>").append(weatherImage4);
       var humidity4 = $("<p>").addClass("card-text").text("Humidity: " + response.list[30].main.humidity + "%");
-      var newDiv4 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18 rem");
+      var newDiv4 = $("<div>").addClass("card text-white bg-primary mb-3 col-lg-2").attr("max-width", "18rem");
       newDiv4.append(header4, weatherImageDiv4, temp4, humidity4);
       holderDiv.append(newDiv4)
       $("#five-day").append(holderDiv);
