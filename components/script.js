@@ -10,23 +10,30 @@ citySearch();
     newLiEls.addClass("list-group-item");
     $("#ul-element").append(newLiEls)
     //Adding event listeners to each of the list items so we can bring up a city's info if the list item with the city's name gets clicked
-    newLiEls.on("click", function(){
-      console.log(newLiEls.text());
-      cityInput = newLiEls.text();
-      cityArray.push(cityInput);
-      citySearch();
-    });
+    // newLiEls.on("click", function(){
+    //   console.log(newLiEls.text());
+    //   cityInput = newLiEls.text();
+    //   cityArray.push(cityInput);
+    //   citySearch();
+    // });
   }
 
 //Event Listeners calling the function to search a city in the openweather API
 $("#submit-btn").on("click", citySearch);
-function citySearch(e){
+function citySearch(){
   var cityInput = $("#city-input").val();
   //If there is text in the city input, continue with the city search function and contacting the openweather API
-  if(cityInput){
+  if(!localStorage.getItem("cityList")){
+    return;
+  }
+  else if(cityInput){
     cityArray.push(cityInput);
   //If there is not text in the city input, go to local storage and get a city to use to contact the openweather API
-  }else{
+  }
+  // else if(event.target.matches("ul")){
+  //   console.log("I was clicked");
+  // }
+  else{
     var oldCities = JSON.parse(localStorage.getItem("cityList"));
     cityArray = oldCities;
     cityInput = oldCities[oldCities.length-1];
