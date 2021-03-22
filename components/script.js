@@ -22,18 +22,15 @@ citySearch();
 $("#submit-btn").on("click", citySearch);
 function citySearch(){
   var cityInput = $("#city-input").val();
-  //If there is text in the city input, continue with the city search function and contacting the openweather API
-  if(!localStorage.getItem("cityList")){
+  if(!localStorage.getItem("cityList") && !cityInput){
     return;
   }
-  else if(cityInput){
+  //If there is text in the city input, continue with the city search function and contacting the openweather API
+if(cityInput){
     cityArray.push(cityInput);
-  //If there is not text in the city input, go to local storage and get a city to use to contact the openweather API
   }
-  // else if(event.target.matches("ul")){
-  //   console.log("I was clicked");
-  // }
-  else{
+  //If there is not text in the city input, go to local storage and get a city to use to contact the openweather API
+  else if(!cityInput){
     var oldCities = JSON.parse(localStorage.getItem("cityList"));
     cityArray = oldCities;
     cityInput = oldCities[oldCities.length-1];
