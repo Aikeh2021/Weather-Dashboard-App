@@ -3,6 +3,12 @@ $(document).ready(function(){
 var cityArray = [];
 citySearch();
 
+//Buton to clear the dashboard if the user wants to clear it
+$("#clear-btn").on("click", function(){
+localStorage.clear();
+location.reload();
+});
+
 //Function making the sidenav list of cities on the left of the HTML page
   function makeCityList(city){
     var newLiEls = $("<li>");
@@ -10,13 +16,22 @@ citySearch();
     newLiEls.addClass("list-group-item");
     $("#ul-element").append(newLiEls)
     //Adding event listeners to each of the list items so we can bring up a city's info if the list item with the city's name gets clicked
-    
-    // newLiEls.on("click", function(){
-    //   console.log(newLiEls.text());
-    //   cityInput = newLiEls.text();
-    //   cityArray.push(cityInput);
-    //   citySearch();
-    // });
+    $(newLiEls).on("click", function(e){
+      // console.log(e.target.innerText);
+      // var cityClickedOn = "" + e.target.innerText;
+      // var oldCities = JSON.parse(localStorage.getItem("cityList"));
+      // oldCities.push(cityClickedOn);
+      // cityArray.push(cityClickedOn);
+      // console.log(cityArray);
+      // citySearch(e.target.innerText);
+      // var oldCities = JSON.parse(localStorage.getItem("cityList"));
+      // oldCities.push(cityClickedOn);
+      // cityArray = oldCities;
+      // cityInput = oldCities[oldCities.length-1];
+      // return cityInput;
+      // citySearch();
+      // location.reload();
+    })
   }
 
 //Event Listeners calling the function to search a city in the openweather API
